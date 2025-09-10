@@ -1,6 +1,6 @@
 {
   "name": "@mova/thin-core",
-  "version": "3.3.0-rc.1",
+  "version": "3.3.0-rc.2",
   "description": "MOVA 3.3 Thin Core: schemas, precompiled validators, canonical examples & CLI validate",
   "license": "MIT",
   "type": "module",
