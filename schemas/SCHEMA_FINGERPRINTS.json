@@ -1,0 +1,24 @@
+{
+  "generated_at": "2025-09-09T07:15:47.848Z",
+  "manifest": "schemas/schema_manifest.json",
+  "entries": [
+    {
+      "id": "https://mova.dev/schemas/envelope.3.3.schema.json",
+      "path": "schemas/envelope.3.3.schema.json",
+      "bytes": 3222,
+      "sha256": "978662c178ac5bbe723684b73fed8e51e7405e9f41e3397e64f09a26912cc8d2"
+    },
+    {
+      "id": "https://mova.dev/schemas/route.1.0.schema.json",
+      "path": "schemas/route.1.0.schema.json",
+      "bytes": 2646,
+      "sha256": "3d2dc82d7980f7d8495405416892cd0252f0abd1f961127d1e303a3cf6134cf8"
+    },
+    {
+      "id": "https://mova.dev/schemas/policies.schema.json",
+      "path": "schemas/policies.schema.json",
+      "bytes": 1207,
+      "sha256": "19c750a2c925a9d5885d37f3698c159b813558d2e6e56c7669250734e89ffce6"
+    }
+  ]
+}

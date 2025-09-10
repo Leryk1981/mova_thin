@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mova.dev/schemas/actions/log.schema.json",
+  "title": "Action: log",
+  "type": "object",
+  "required": ["type", "message"],
+  "properties": {
+    "type": { "const": "log" },
+    "name": { "type": "string" },
+    "level": { "type": "string", "enum": ["debug","info","warn","error"] },
+    "message": { "oneOf": [ { "type": "string" }, { "type": "object" }, { "type": "array" } ] },
+    "save_as": { "type": "string" },
+    "policies": { "$ref": "../policies.schema.json" }
+  },
+  "additionalProperties": false
+}
+

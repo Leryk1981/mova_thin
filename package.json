@@ -1,0 +1,56 @@
+{
+  "name": "@mova/thin-core",
+  "version": "3.3.0-rc.1",
+  "description": "MOVA 3.3 Thin Core: schemas, precompiled validators, canonical examples & CLI validate",
+  "license": "MIT",
+  "type": "module",
+  "main": "validators/index.cjs",
+  "module": "validators/index.mjs",
+  "exports": {
+    ".": {
+      "require": "./validators/index.cjs",
+      "import": "./validators/index.mjs"
+    },
+    "./validators": {
+      "require": "./validators/index.cjs",
+      "import": "./validators/index.mjs"
+    },
+    "./schemas/*": "./schemas/*",
+    "./templates/canonical/*": "./templates/canonical/*"
+  },
+  "files": [
+    "validators",
+    "schemas",
+    "templates/canonical",
+    "bin",
+    "scripts",
+    "README.md",
+    "LICENSE"
+  ],
+  "bin": {
+    "mova-validate": "bin/mova-validate.cjs"
+  },
+  "engines": { 
+    "node": ">=18" 
+  },
+  "scripts": {
+    "verify:schemas": "node scripts/verify_fingerprints.mjs"
+  },
+  "keywords": [
+    "mova",
+    "schema",
+    "validation",
+    "ajv",
+    "json-schema",
+    "envelope",
+    "route"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mova-dev/mova-thin-core.git"
+  },
+  "homepage": "https://github.com/mova-dev/mova-thin-core#readme",
+  "bugs": {
+    "url": "https://github.com/mova-dev/mova-thin-core/issues"
+  }
+}

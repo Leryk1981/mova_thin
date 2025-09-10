@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mova.dev/schemas/actions/parallel.schema.json",
+  "title": "Action: parallel",
+  "type": "object",
+  "required": ["type", "params"],
+  "properties": {
+    "type": { "const": "parallel" },
+    "params": {
+      "type": "object",
+      "anyOf": [
+        {
+          "properties": {
+            "branches": {
+              "type": "array",
+              "minItems": 2,
+              "items": {
+                "type": "array",
+                "minItems": 1,
+                "items": { "$ref": "../envelope.3.3.schema.json#/properties/actions/items" }
+              }
+            }
+          },
+          "required": ["branches"],
+          "additionalProperties": false
+        },
+        {
+          "properties": {
+            "tasks": {
+              "type": "array",
+              "minItems": 2,
+              "items": {
+                "type": "array",
+                "minItems": 1,
+                "items": { "$ref": "../envelope.3.3.schema.json#/properties/actions/items" }
+              }
+            }
+          },
+          "required": ["tasks"],
+          "additionalProperties": false
+        }
+      ]
+    }
+  },
+  "unevaluatedProperties": false
+}

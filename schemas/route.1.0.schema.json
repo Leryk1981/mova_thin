@@ -1,0 +1,121 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mova.dev/schemas/route.1.0.schema.json",
+  "title": "MOVA Route v1.0",
+  "type": "object",
+  "required": [
+    "route_version",
+    "trigger",
+    "invoke"
+  ],
+  "properties": {
+    "route_version": {
+      "type": "string",
+      "const": "1.0"
+    },
+    "description": {
+      "type": "string"
+    },
+    "policies": {
+      "$ref": "policies.schema.json"
+    },
+    "trigger": {
+      "type": "object",
+      "required": [
+        "type"
+      ],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "http",
+            "queue",
+            "schedule",
+            "event"
+          ]
+        },
+        "http": {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string"
+            },
+            "method": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "queue": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "schedule": {
+          "type": "object",
+          "properties": {
+            "cron": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "event": {
+          "type": "object",
+          "properties": {
+            "topic": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": true
+    },
+    "match": {
+      "type": "array",
+      "description": "Optional match conditions (key/equals/contains/regex etc.)",
+      "items": {
+        "type": "object"
+      }
+    },
+    "map": {
+      "type": "object",
+      "description": "Optional mapping/transforms to build plan input/vars",
+      "additionalProperties": true
+    },
+    "invoke": {
+      "type": "object",
+      "description": "How to invoke: inline plan or reference",
+      "oneOf": [
+        {
+          "properties": {
+            "plan": {
+              "$ref": "envelope.3.3.schema.json"
+            }
+          },
+          "required": [
+            "plan"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "properties": {
+            "plan_ref": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "plan_ref"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    }
+  },
+  "additionalProperties": false
+}

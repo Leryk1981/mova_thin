@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mova.dev/schemas/envelope.3.3.schema.json",
+  "title": "MOVA Envelope v3.3",
+  "type": "object",
+  "required": [
+    "mova_version",
+    "actions"
+  ],
+  "properties": {
+    "mova_version": {
+      "type": "string",
+      "pattern": "^3\\.3(\\.\\d+)?$",
+      "description": "MOVA version. Only 3.3.x versions are supported."
+    },
+    "id": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "context": {
+      "type": "object"
+    },
+    "vars": {
+      "type": "object"
+    },
+    "policies": {
+      "$ref": "policies.schema.json"
+    },
+    "meta": {
+      "type": "object",
+      "deprecated": true,
+      "description": "Deprecated since 3.3: use 'policies' instead.",
+      "properties": {
+        "timeout_ms": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "retry": {
+          "type": "object",
+          "properties": {
+            "max_attempts": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "backoff_ms": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "strategy": {
+              "type": "string",
+              "enum": [
+                "fixed",
+                "exp"
+              ]
+            }
+          },
+          "additionalProperties": true
+        },
+        "dlq": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": true
+    },
+    "vars": {
+      "type": "object",
+      "description": "Initial variables for the plan",
+      "additionalProperties": true
+    },
+    "payload": {
+      "description": "Initial payload data for the plan",
+      "oneOf": [
+        { "type": "null" },
+        { "type": "string" },
+        { "type": "number" },
+        { "type": "boolean" },
+        { "type": "array" },
+        { "type": "object" }
+      ]
+    },
+    "actions": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          { "$ref": "https://mova.dev/schemas/actions/print/1.0.1/schema.json" },
+          { "$ref": "https://mova.dev/schemas/actions/http_fetch/1.2.0/schema.json" },
+          { "$ref": "https://mova.dev/schemas/actions/set/1.0.1/schema.json" },
+          { "$ref": "actions/sleep.schema.json" },
+          { "$ref": "actions/transform.schema.json" },
+          { "$ref": "actions/parse_json.schema.json" },
+
+          { "$ref": "actions/log.schema.json" },
+          { "$ref": "actions/assert.schema.json" },
+          { "$ref": "actions/call.schema.json" },
+          { "$ref": "actions/emit_event.schema.json" },
+          { "$ref": "actions/tool_call.schema.json" },
+          { "$ref": "actions/json_patch.schema.json" },
+          { "$ref": "actions/file_read.schema.json" },
+          { "$ref": "actions/file_write.schema.json" },
+          { "$ref": "actions/regex_extract.schema.json" },
+          { "$ref": "actions/base64.schema.json" },
+          { "$ref": "actions/vnl.schema.json" },
+          { "$ref": "actions/if.schema.json" },
+          { "$ref": "actions/repeat.schema.json" },
+          { "$ref": "actions/parallel.schema.json" }
+        ]
+      }
+    }
+  },
+  "additionalProperties": false
+}

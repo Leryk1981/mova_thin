@@ -1,0 +1,16 @@
+{
+  "schemas": [
+    {
+      "path": "schemas/envelope.3.3.schema.json",
+      "id": "https://mova.dev/schemas/envelope.3.3.schema.json"
+    },
+    {
+      "path": "schemas/route.1.0.schema.json",
+      "id": "https://mova.dev/schemas/route.1.0.schema.json"
+    },
+    {
+      "path": "schemas/policies.schema.json",
+      "id": "https://mova.dev/schemas/policies.schema.json"
+    }
+  ]
+}

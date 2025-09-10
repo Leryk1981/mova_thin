@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mova.dev/schemas/actions/call.schema.json",
+  "title": "Action: call (sub-plan)",
+  "type": "object",
+  "required": ["type"],
+  "properties": {
+    "type": { "const": "call" },
+    "name": { "type": "string" },
+    "plan_ref": { "type": "string", "minLength": 1 },
+    "inline_plan": { "type": "object" },
+    "input": { "type": "object" },
+    "idempotency_key": { "type": "string" },
+    "save_as": { "type": "string" },
+    "policies": { "$ref": "../policies.schema.json" }
+  },
+  "oneOf": [
+    {
+      "properties": {
+        "plan_ref": { "type": "string", "minLength": 1 }
+      },
+      "required": ["plan_ref"]
+    },
+    {
+      "properties": {
+        "inline_plan": { "type": "object" }
+      },
+      "required": ["inline_plan"]
+    }
+  ],
+  "additionalProperties": false
+}
+

@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mova.dev/schemas/actions/print/1.0.1/schema.json",
+  "title": "Action: print",
+  "type": "object",
+  "anyOf": [
+    {
+      "required": ["type", "message"],
+      "properties": {
+        "type": { "const": "print" },
+        "name": { "type": "string" },
+        "message": { "oneOf": [ { "type": "string" }, { "type": "object" }, { "type": "array" } ] },
+        "save_as": { "type": "string" },
+        "policies": { "$ref": "https://mova.dev/schemas/policies.schema.json" }
+      },
+      "additionalProperties": false
+    },
+    {
+      "required": ["type", "params"],
+      "properties": {
+        "type": { "const": "print" },
+        "name": { "type": "string" },
+        "params": {
+          "type": "object",
+          "required": ["text"],
+          "properties": {
+            "text": { "oneOf": [ { "type": "string" }, { "type": "object" }, { "type": "array" } ] }
+          },
+          "additionalProperties": false
+        },
+        "save_as": { "type": "string" },
+        "policies": { "$ref": "https://mova.dev/schemas/policies.schema.json" }
+      },
+      "additionalProperties": false
+    }
+  ]
+}

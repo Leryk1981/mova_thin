@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mova.dev/schemas/policies.schema.json",
+  "title": "MOVA Policies (timeouts/retry/dlq)",
+  "type": "object",
+  "properties": {
+    "timeout_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "retry": {
+      "type": "object",
+      "properties": {
+        "max_attempts": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "backoff_ms": {
+          "anyOf": [
+            { "type": "integer", "minimum": 0 },
+            { "type": "array", "items": { "type": "integer", "minimum": 0 } }
+          ]
+        },
+        "strategy": {
+          "type": "string",
+          "enum": [
+            "fixed",
+            "exp"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "dlq": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "target": {
+          "type": "string",
+          "description": "Queue/topic/file path or identifier"
+        }
+      },
+      "additionalProperties": false
+    }
+,
+    "budget_ms": {
+      "type": "integer",
+      "minimum": 0
+    }
+  },
+  "additionalProperties": false
+}

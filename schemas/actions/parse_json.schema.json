@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mova.dev/schemas/actions/parse_json.schema.json",
+  "title": "Action: parse_json",
+  "type": "object",
+  "required": ["type"],
+  "properties": {
+    "type": { "const": "parse_json" },
+    "name": { "type": "string" },
+    "from": { "type": "string", "description": "ctx path to string source (e.g. resp.text)" },
+    "text": { "type": ["string", "object", "array"] },
+    "save_as": { "type": "string" },
+    "policies": { "$ref": "../policies.schema.json" }
+  },
+  "oneOf": [
+    {
+      "properties": {
+        "from": { "type": "string", "description": "ctx path to string source (e.g. resp.text)" }
+      },
+      "required": ["from"]
+    },
+    {
+      "properties": {
+        "text": { "type": ["string", "object", "array"] }
+      },
+      "required": ["text"]
+    }
+  ],
+  "additionalProperties": false
+}
+

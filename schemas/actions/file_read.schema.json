@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mova.dev/schemas/actions/file_read.schema.json",
+  "title": "Action: file_read",
+  "type": "object",
+  "required": ["type", "path"],
+  "properties": {
+    "type": { "const": "file_read" },
+    "name": { "type": "string" },
+    "path": { "type": "string", "minLength": 1 },
+    "encoding": { "type": "string", "enum": ["utf8","base64"] },
+    "save_as": { "type": "string" },
+    "policies": { "$ref": "../policies.schema.json" }
+  },
+  "additionalProperties": false
+}
+

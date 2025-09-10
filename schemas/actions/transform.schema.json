@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mova.dev/schemas/actions/transform.schema.json",
+  "title": "Action: transform",
+  "type": "object",
+  "required": ["type", "save_as"],
+  "properties": {
+    "type": { "const": "transform" },
+    "name": { "type": "string" },
+    "from": { "type": "string", "description": "ctx path, e.g. users_resp.json" },
+    "pick": { "type": "string", "description": "subpath inside 'from', e.g. 0.name" },
+    "template": { "type": "string", "description": "optional string with {{path}} interpolation" },
+    "save_as": { "type": "string" },
+    "policies": { "$ref": "../policies.schema.json" }
+  },
+  "anyOf": [
+    {
+      "properties": {
+        "template": { "type": "string", "description": "optional string with {{path}} interpolation" }
+      },
+      "required": ["template"]
+    },
+    {
+      "properties": {
+        "from": { "type": "string", "description": "ctx path, e.g. users_resp.json" }
+      },
+      "required": ["from"]
+    }
+  ],
+  "additionalProperties": false
+}

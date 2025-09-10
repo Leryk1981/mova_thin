@@ -1,0 +1,5 @@
+{
+  "route_version": "1.0",
+  "trigger": { "type": "http", "http": { "path": "/webhook", "method": "POST" } },
+  "invoke": { "plan_ref": "booking.book_by_time" }
+}

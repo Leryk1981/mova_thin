@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mova.dev/schemas/actions/vnl.schema.json",
+  "title": "Action: vnl (compile sentence/AST into canonical actions)",
+  "type": "object",
+  "required": ["type", "params"],
+  "properties": {
+    "type": { "const": "vnl" },
+    "params": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": ["sentence"],
+          "properties": {
+            "sentence": { "type": "string", "minLength": 1 },
+            "lang": { "type": "string", "description": "BCP-47 tag, e.g. uk, en" },
+            "expand": { "enum": ["inline", "call"], "default": "inline" },
+            "save_as": { "type": "string" }
+          },
+          "unevaluatedProperties": false
+        },
+        {
+          "type": "object",
+          "required": ["ast"],
+          "properties": {
+            "ast": { "$ref": "../vnl.schema.json" },
+            "expand": { "enum": ["inline", "call"], "default": "inline" },
+            "save_as": { "type": "string" }
+          },
+          "unevaluatedProperties": false
+        }
+      ]
+    }
+  },
+  "unevaluatedProperties": false
+}

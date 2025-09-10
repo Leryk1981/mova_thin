@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mova.dev/schemas/actions/sleep.schema.json",
+  "title": "Action: sleep",
+  "type": "object",
+  "required": ["type", "ms"],
+  "properties": {
+    "type": { "const": "sleep" },
+    "name": { "type": "string" },
+    "ms":   { "type": "integer", "minimum": 0 },
+    "policies": { "$ref": "../policies.schema.json" }
+  },
+  "additionalProperties": false
+}

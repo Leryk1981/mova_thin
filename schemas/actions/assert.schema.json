@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mova.dev/schemas/actions/assert.schema.json",
+  "title": "Action: assert",
+  "type": "object",
+  "required": ["type", "expr"],
+  "properties": {
+    "type": { "const": "assert" },
+    "name": { "type": "string" },
+    "expr": { "type": "string" },
+    "message": { "type": "string" },
+    "save_as": { "type": "string" },
+    "policies": { "$ref": "../policies.schema.json" }
+  },
+  "additionalProperties": false
+}
+

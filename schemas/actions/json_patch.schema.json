@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mova.dev/schemas/actions/json_patch.schema.json",
+  "title": "Action: json_patch (RFC 7386 merge-patch)",
+  "type": "object",
+  "required": ["type", "target", "patch"],
+  "properties": {
+    "type": { "const": "json_patch" },
+    "name": { "type": "string" },
+    "target": { "type": "string", "minLength": 1 },
+    "patch": { "type": ["object", "null"] },
+    "save_as": { "type": "string" },
+    "policies": { "$ref": "../policies.schema.json" }
+  },
+  "additionalProperties": false
+}
+

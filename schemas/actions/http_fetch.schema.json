@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mova.dev/schemas/actions/http_fetch/1.2.0/schema.json",
+  "title": "Action: http_fetch",
+  "type": "object",
+  "required": ["type"],
+  "properties": {
+    "type": { "const": "http_fetch" },
+    "name": { "type": "string" },
+    "params": {
+      "type": "object",
+      "required": ["endpoint", "method"],
+      "properties": {
+        "endpoint": { "type": "string", "pattern": "^https?://" },
+        "method": { "type": "string", "enum": ["GET","HEAD","POST","PUT","PATCH","DELETE","OPTIONS"] },
+        "headers": {
+      "type": "object",
+      "patternProperties": {
+        "^[A-Za-z0-9!#$%&'*+.^_`|~-]+$": { "type": "string", "maxLength": 8192 }
+      },
+          "additionalProperties": false
+        },
+        "payload": {
+      "oneOf": [
+        { "type": "null" },
+        { "type": "string", "maxLength": 1048576 },
+        { "type": "array" },
+          { "type": "object" }
+        ]
+        },
+        "timeout_ms": { "type": "integer", "minimum": 1, "maximum": 120000 },
+        "retry": {
+      "type": "object",
+      "properties": {
+        "max_attempts": { "type": "integer", "minimum": 0, "maximum": 10 },
+        "backoff_ms": { "type": "integer", "minimum": 0, "maximum": 60000 }
+      },
+          "required": ["max_attempts", "backoff_ms"],
+          "additionalProperties": false
+        },
+        "idempotency_key": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "endpoint": { "type": "string", "pattern": "^https?://" },
+    "method": { "type": "string", "enum": ["GET","HEAD","POST","PUT","PATCH","DELETE","OPTIONS"] },
+    "headers": {
+      "type": "object",
+      "patternProperties": {
+        "^[A-Za-z0-9!#$%&'*+.^_`|~-]+$": { "type": "string", "maxLength": 8192 }
+      },
+      "additionalProperties": false
+    },
+    "payload": {
+      "oneOf": [
+        { "type": "null" },
+        { "type": "string", "maxLength": 1048576 },
+        { "type": "array" },
+        { "type": "object" }
+      ]
+    },
+    "timeout_ms": { "type": "integer", "minimum": 1, "maximum": 120000 },
+    "retry": {
+      "type": "object",
+      "properties": {
+        "max_attempts": { "type": "integer", "minimum": 0, "maximum": 10 },
+        "backoff_ms": { "type": "integer", "minimum": 0, "maximum": 60000 }
+      },
+      "required": ["max_attempts", "backoff_ms"],
+      "additionalProperties": false
+    },
+    "idempotency_key": { "type": "string" },
+
+    "save_as": { "type": "string" },
+    "policies": { "$ref": "https://mova.dev/schemas/policies.schema.json" }
+  },
+  "anyOf": [
+    { "properties": { "params": {} }, "required": ["params"] },
+    { "properties": { "endpoint": {}, "method": {} }, "required": ["endpoint", "method"] }
+  ],
+  "additionalProperties": false
+}

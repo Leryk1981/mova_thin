@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mova.dev/schemas/actions/emit_event.schema.json",
+  "title": "Action: emit_event",
+  "type": "object",
+  "required": ["type", "channel", "payload"],
+  "properties": {
+    "type": { "const": "emit_event" },
+    "name": { "type": "string" },
+    "channel": { "type": "string", "minLength": 1 },
+    "payload": { "type": "object" },
+    "idempotency_key": { "type": "string" },
+    "save_as": { "type": "string" },
+    "policies": { "$ref": "../policies.schema.json" }
+  },
+  "additionalProperties": false
+}
+

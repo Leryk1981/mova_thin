@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mova.dev/schemas/actions/file_write.schema.json",
+  "title": "Action: file_write",
+  "type": "object",
+  "required": ["type", "path", "data"],
+  "properties": {
+    "type": { "const": "file_write" },
+    "name": { "type": "string" },
+    "path": { "type": "string", "minLength": 1 },
+    "data": {},
+    "encoding": { "type": "string", "enum": ["utf8","base64"] },
+    "mode": { "type": "string", "enum": ["overwrite","append"] },
+    "idempotency_key": { "type": "string" },
+    "save_as": { "type": "string" },
+    "policies": { "$ref": "../policies.schema.json" }
+  },
+  "additionalProperties": false
+}
+

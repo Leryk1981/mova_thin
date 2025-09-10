@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mova.dev/schemas/actions/regex_extract.schema.json",
+  "title": "Action: regex_extract",
+  "type": "object",
+  "required": ["type", "from", "pattern"],
+  "properties": {
+    "type": { "const": "regex_extract" },
+    "name": { "type": "string" },
+    "from": { "type": "string", "minLength": 1 },
+    "pattern": { "type": "string" },
+    "flags": { "type": "string" },
+    "group": { "type": "integer", "minimum": 0 },
+    "save_as": { "type": "string" },
+    "policies": { "$ref": "../policies.schema.json" }
+  },
+  "additionalProperties": false
+}
+

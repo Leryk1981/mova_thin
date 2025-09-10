@@ -1,0 +1,12 @@
+{
+  "route_version": "1.0",
+  "trigger": { "type": "http", "http": { "path": "/demo", "method": "POST" } },
+  "invoke": {
+    "plan": {
+      "mova_version": "3.3",
+      "actions": [
+        { "type": "print", "message": "inline ok" }
+      ]
+    }
+  }
+}

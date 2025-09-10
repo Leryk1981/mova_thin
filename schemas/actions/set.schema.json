@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mova.dev/schemas/actions/set/1.0.1/schema.json",
+  "title": "Action: set",
+  "type": "object",
+  "anyOf": [
+    {
+      "required": ["type", "vars"],
+      "properties": {
+        "type": { "const": "set" },
+        "name": { "type": "string" },
+        "vars": { "type": "object", "additionalProperties": true },
+        "policies": { "$ref": "https://mova.dev/schemas/policies.schema.json" }
+      },
+      "additionalProperties": false
+    },
+    {
+      "required": ["type", "params"],
+      "properties": {
+    "type": { "const": "set" },
+    "name": { "type": "string" },
+    "params": {
+      "type": "object",
+      "required": ["vars"],
+      "properties": {
+        "vars": { "type": "object", "additionalProperties": true }
+      },
+      "additionalProperties": false
+    },
+        "policies": { "$ref": "https://mova.dev/schemas/policies.schema.json" }
+      },
+      "additionalProperties": false
+    }
+  ]
+}

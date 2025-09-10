@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mova.dev/schemas/actions/base64.schema.json",
+  "title": "Action: base64",
+  "type": "object",
+  "required": ["type", "mode"],
+  "properties": {
+    "type": { "const": "base64" },
+    "name": { "type": "string" },
+    "mode": { "type": "string", "enum": ["encode","decode"] },
+    "from": { "type": "string" },
+    "text": { "type": "string" },
+    "save_as": { "type": "string" },
+    "policies": { "$ref": "../policies.schema.json" }
+  },
+  "additionalProperties": false
+}
+
