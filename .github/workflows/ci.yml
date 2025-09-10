@@ -1,0 +1,86 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [18.x, 20.x, 22.x]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run build
+      - name: Create required directories
+        run: |
+          mkdir -p examples/plans/generated
+          mkdir -p logs/dlq
+      - name: Debug Node.js and AJV setup
+        run: |
+          echo "Node.js version: $(node --version)"
+          echo "NPM version: $(npm --version)"
+          echo "Checking AJV installation:"
+          npm list ajv ajv-formats || true
+      - name: Run CI Contract (AJV validation)
+        run: npm run ci:contract
+      - run: npm run validate:routes
+      - run: npm run validate:invalid || true
+      - run: npm run vnl:compile:all
+      - run: npm run smoke:hello
+      - name: Smoke http:status (retry)
+        run: |
+          set -e
+          for i in 1 2 3; do
+            if npm run smoke:http:status; then exit 0; fi
+            echo "retry http:status $i"; sleep 2;
+          done
+          echo "smoke:http:status failed after retries"; exit 1
+      - name: Smoke parse (retry)
+        run: |
+          set -e
+          for i in 1 2 3; do
+            if npm run smoke:parse; then exit 0; fi
+            echo "retry parse $i"; sleep 2;
+          done
+          echo "smoke:parse failed after retries"; exit 1
+      - name: Smoke transform (retry)
+        run: |
+          set -e
+          for i in 1 2 3; do
+            if npm run smoke:transform; then exit 0; fi
+            echo "retry transform $i"; sleep 2;
+          done
+          echo "smoke:transform failed after retries"; exit 1
+      - name: Smoke VNL POST (retry)
+        run: |
+          set -e
+          for i in 1 2 3; do
+            if npm run smoke:vnl:post; then exit 0; fi
+            echo "retry vnl:post $i"; sleep 2;
+          done
+          echo "smoke:vnl:post failed after retries"; exit 1
+      # Cross-platform route smoke (with retry)
+      - run: |
+          set -e
+          node dist/src/runner/run_route_cli.js --port 8787 routes/*.route.json & echo $! > server.pid
+          for i in 1 2 3 4 5; do
+            code=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:8787/status || true)
+            if [ "$code" = "200" ]; then curl -s http://localhost:8787/status; ok=1; break; fi
+            echo "waiting route-runner ($i)"; sleep 1
+          done
+          if [ "${ok:-0}" != "1" ]; then echo "route smoke failed"; kill $(cat server.pid) || true; exit 1; fi
+          kill $(cat server.pid) || true
+      # Cross-platform retry/DLQ smoke
+      - run: rm -rf logs/dlq || true
+      - run: node dist/src/runner/run_cli.js examples/plans/retry_dlq_demo_3_3.json || true
+      - run: |
+          if [ -d logs/dlq ]; then f=$(ls -1t logs/dlq | head -n 1); echo "DLQ: logs/dlq/$f"; cat "logs/dlq/$f"; else echo 'No DLQ file found'; fi
+      - run: npm run smoke:budget || true
