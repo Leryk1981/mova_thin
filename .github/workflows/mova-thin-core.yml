@@ -1,10 +1,11 @@
+
 name: MOVA Thin Core Conformance
 
 on:
   push:
-    branches: [ feat/spec-migration-thin-core ]
+    branches: [ main ]
   pull_request:
-    branches: [ feat/spec-migration-thin-core ]
+    branches: [ main ]
 
 jobs:
   conformance:
@@ -59,14 +60,4 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
-      - run: npm ci || true
-      - run: npm run build:validators
-      - run: npm run schema:hash && npm run schema:check
-      - run: npm run release:pack
-      - uses: softprops/action-gh-release@v2
-        with:
-          files: |
-            release/mova-thin-core-*.tgz
-            build/reports/summary.json
-            schemas/SCHEMA_FINGERPRINTS.json
+          node
