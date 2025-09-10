@@ -1,0 +1,17 @@
+{
+  "mova_version": "3.3",
+  "policies": {
+    "retry": {
+      "max_attempts": 3,
+      "strategy": "linear"
+    }
+  },
+  "actions": [
+    {
+      "type": "print",
+      "params": {
+        "value": "Invalid retry strategy should fail"
+      }
+    }
+  ]
+}

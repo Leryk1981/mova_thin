@@ -1,0 +1,7 @@
+{ "mova_version":"3.3",
+  "vars": { "user_message":"hello" },
+  "actions":[
+    { "type":"print","params":{"text":"Отримано: {{user_message}}"} },
+    { "type":"set","params":{"vars":{"response":"{{user_message}}"}} },
+    { "type":"print","params":{"text":"Відповідь: {{response}}"} }
+]}

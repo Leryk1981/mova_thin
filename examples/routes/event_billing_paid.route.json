@@ -1,0 +1,13 @@
+{
+  "route_version": "1.0",
+  "description": "Event topic billing.paid → inline envelope",
+  "trigger": { "type": "event", "event": { "topic": "billing.paid" } },
+  "invoke": {
+    "plan": {
+      "mova_version": "3.3",
+      "actions": [
+        { "type": "print", "params": { "text": "Billing paid for {{payload.customer_id}}" } }
+      ]
+    }
+  }
+}

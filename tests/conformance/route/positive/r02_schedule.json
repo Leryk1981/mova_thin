@@ -1,0 +1,12 @@
+{
+  "route_version": "1.0",
+  "trigger": {
+    "type": "schedule",
+    "schedule": {
+      "cron": "0 */15 * * * *"
+    }
+  },
+  "invoke": {
+    "plan_ref": "examples/scheduled-task.json"
+  }
+}

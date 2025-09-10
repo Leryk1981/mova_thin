@@ -1,0 +1,28 @@
+{
+  "mova_version": "3.3",
+  "policies": {
+    "timeout_ms": 20000,
+    "retry": {
+      "max_attempts": 1,
+      "strategy": "exp",
+      "backoff_ms": [100]
+    },
+    "budget_ms": 60000
+  },
+  "actions": [
+    {
+      "type": "file_read",
+      "path": "/tmp/input.json"
+    },
+    {
+      "type": "parse_json",
+      "from": "resp.text",
+      "save_as": "parsed_data"
+    },
+    {
+      "type": "file_write",
+      "path": "/tmp/output.json",
+      "data": "{{parsed_data}}"
+    }
+  ]
+}

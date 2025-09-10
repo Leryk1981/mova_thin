@@ -1,0 +1,18 @@
+{
+  "mova_version": "3.3",
+  "policies": {
+    "timeout_ms": 10000,
+    "retry": {
+      "max_attempts": 2,
+      "strategy": "exp",
+      "backoff_ms": [500, 1000]
+    }
+  },
+  "actions": [
+    {
+      "type": "log",
+      "message": "Process started",
+      "level": "info"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "route_version": "1.0",
+  "trigger": {
+    "type": "http",
+    "http": {
+      "path": "/api/webhook",
+      "method": "POST"
+    }
+  },
+  "match": [
+    {
+      "path": "$.event_type",
+      "eq": "payment.completed"
+    },
+    {
+      "path": "$.amount",
+      "gt": 0
+    }
+  ],
+  "invoke": {
+    "plan_ref": "payments.process_completion"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "mova_version": "3.3",
+  "policies": {
+    "timeout_ms": 5000,
+    "retry": {
+      "max_attempts": 2,
+      "strategy": "exp",
+      "backoff_ms": [100, 300]
+    }
+  },
+  "actions": [
+    {
+      "type": "log",
+      "message": "Starting process...",
+      "level": "info"
+    },
+    {
+      "type": "http_fetch",
+      "endpoint": "https://api.example.com/status",
+      "method": "GET"
+    },
+    {
+      "type": "log",
+      "message": "Process completed",
+      "level": "info"
+    }
+  ]
+}

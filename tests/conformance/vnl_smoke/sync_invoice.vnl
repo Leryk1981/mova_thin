@@ -1,0 +1,2 @@
+emit channel="sync" payload='{"entity":"invoice","id":"inv_42","for":"cust_1","at":"2025-09-06T10:00:00Z"}'
+

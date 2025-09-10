@@ -1,0 +1,10 @@
+{
+  "mova_version": "3.3",
+  "id": "re",
+  "actions": [
+    { "type": "set", "vars": { "s": "User: Alice [id=42]" } },
+    { "type": "regex_extract", "from": "vars.s", "pattern": "id=(\\d+)", "group": 1, "save_as": "id" },
+    { "type": "print", "message": "id={{id}}" }
+  ]
+}
+

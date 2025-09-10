@@ -1,0 +1,8 @@
+{
+  "mova_version": "3.3",
+  "id": "log-demo",
+  "actions": [
+    { "type": "log", "level": "warn", "message": "hello-log" }
+  ]
+}
+

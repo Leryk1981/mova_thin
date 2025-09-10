@@ -1,0 +1,21 @@
+{
+  "mova_version": "3.3",
+  "id": "post_demo",
+  "description": "Generated from VNL",
+  "policies": {
+    "timeout_ms": 15000
+  },
+  "actions": [
+    {
+      "type": "http_fetch",
+      "endpoint": "https://httpbin.org/post",
+      "method": "POST",
+      "payload": "{\"ping\":1}",
+      "save_as": "resp"
+    },
+    {
+      "type": "print",
+      "message": "status={{resp.status}}"
+    }
+  ]
+}

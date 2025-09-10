@@ -1,0 +1,25 @@
+# MOVA 3.3 Code Owners
+# These files require review from core maintainers
+
+# Schemas - critical for contract validation
+schemas/** @Leryk1981
+*.schema.json @Leryk1981
+
+# Lexicon - frame and macro registries
+lexicon/** @Leryk1981
+
+# Core compiler and validator
+src/compiler/ @Leryk1981
+src/validator/ @Leryk1981
+
+# CI contract scripts
+scripts/templates_lint.ts @Leryk1981
+scripts/vnl_gen_cases.ts @Leryk1981
+scripts/*_registry*.ts @Leryk1981
+
+# GitHub workflows
+.github/workflows/ @Leryk1981
+
+# Package configuration
+package.json @Leryk1981
+tsconfig.json @Leryk1981

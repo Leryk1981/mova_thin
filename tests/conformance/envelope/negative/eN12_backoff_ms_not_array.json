@@ -1,0 +1,18 @@
+{
+  "mova_version": "3.3",
+  "policies": {
+    "retry": {
+      "max_attempts": 3,
+      "strategy": "exp",
+      "backoff_ms": 1000
+    }
+  },
+  "actions": [
+    {
+      "type": "print",
+      "params": {
+        "value": "backoff_ms should be array, not number"
+      }
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "mova_version": "3.3",
+  "policies": {
+    "timeout_ms": -1
+  },
+  "actions": [
+    {
+      "type": "print",
+      "params": {
+        "value": "Negative timeout should fail"
+      }
+    }
+  ]
+}

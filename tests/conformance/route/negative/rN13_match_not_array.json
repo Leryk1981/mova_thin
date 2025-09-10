@@ -1,0 +1,6 @@
+{
+  "route_version": "1.0",
+  "trigger": { "type": "http", "http": { "path": "/x", "method": "POST" } },
+  "invoke": { "plan_ref": "booking.book_by_time" },
+  "match": { "field": "type", "equals": "foo" }
+}

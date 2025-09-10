@@ -1,0 +1,7 @@
+@timeout_ms=15000
+@retry.max_attempts=2
+@dlq.enabled=true
+
+fetch from="https://jsonplaceholder.typicode.com/users" method=GET as=users_resp
+print "status={{users_resp.status}} first={{users_resp.json[0].name}}"
+

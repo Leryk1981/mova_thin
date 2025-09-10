@@ -1,0 +1,9 @@
+{
+  "mova_version": "3.3",
+  "id": "emit",
+  "actions": [
+    { "type": "emit_event", "channel": "audit", "payload": { "ok": true }, "idempotency_key": "x1" },
+    { "type": "emit_event", "channel": "audit", "payload": { "ok": true }, "idempotency_key": "x1" }
+  ]
+}
+

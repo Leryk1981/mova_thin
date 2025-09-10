@@ -1,0 +1,11 @@
+{
+  "mova_version": "3.3",
+  "id": "version_test_33",
+  "description": "Test plan with valid 3.3 version",
+  "actions": [
+    {
+      "type": "print",
+      "message": "Version 3.3 is supported"
+    }
+  ]
+}

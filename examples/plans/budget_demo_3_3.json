@@ -1,0 +1,13 @@
+{
+  "mova_version": "3.3",
+  "id": "budget-demo-3-3",
+  "description": "Global budget stops long sleeps/requests",
+  "policies": { "budget_ms": 250 },
+  "actions": [
+    { "type": "sleep", "ms": 200 },
+    { "type": "print", "message": "after first sleep" },
+    { "type": "sleep", "ms": 200 },
+    { "type": "print", "message": "SHOULD_NOT_PRINT" }
+  ]
+}
+

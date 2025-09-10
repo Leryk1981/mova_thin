@@ -1,0 +1,10 @@
+{
+  "mova_version": "3.3",
+  "id": "b64",
+  "actions": [
+    { "type": "base64", "mode": "encode", "text": "ping", "save_as": "enc" },
+    { "type": "base64", "mode": "decode", "from": "enc", "save_as": "dec" },
+    { "type": "print", "message": "{{dec}}" }
+  ]
+}
+

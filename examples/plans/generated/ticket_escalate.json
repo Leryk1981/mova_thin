@@ -1,0 +1,9 @@
+{
+  "mova_version": "3.3",
+  "actions": [
+    {
+      "type": "print",
+      "message": "Executing ticket_escalate with params: _ticket_id_, _queue_"
+    }
+  ]
+}

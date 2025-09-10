@@ -1,0 +1,63 @@
+{
+  "mova_version": "3.3",
+  "id": "barbershop-smoke",
+  "description": "🔥 Cut or Die Barbershop - Smoke test for AJV standard",
+  "vars": { "user_input": "cennik" },
+  "actions": [
+    {
+      "type": "print",
+      "params": { "text": "🔥 Cut or Die Barbershop Bot" }
+    },
+    {
+      "type": "print", 
+      "params": { "text": "📨 Otrzymano wiadomość: '{{user_input}}'" }
+    },
+    {
+      "type": "set",
+      "params": { 
+        "vars": { 
+          "user_message": "{{user_input}}",
+          "response": "🤔 **NIE ROZUMIEM**"
+        }
+      }
+    },
+    {
+      "type": "if",
+      "params": {
+        "when": { "path": "user_message", "eq": "cennik" },
+        "then": [
+          {
+            "type": "set",
+            "params": {
+              "vars": {
+                "response": "💰 **CENNIK USŁUG CUT OR DIE**\n\n💇‍♂️ **STRZYŻENIE:**\n• Klasyczne - 90 PLN\n• Fade/Undercut - 100 PLN\n• Buzz Cut - 70 PLN\n\n🧔 **BRODA:**\n• Modelowanie - 50 PLN\n• Pełne golenie - 60 PLN\n\n💼 **PAKIETY:**\n• Strzyżenie + Broda - 130 PLN\n• VIP (wszystko + stylizacja) - 180 PLN"
+              }
+            }
+          }
+        ],
+        "else": [
+          {
+            "type": "if",
+            "params": {
+              "when": { "path": "user_message", "contains": "godziny" },
+              "then": [
+                {
+                  "type": "set",
+                  "params": {
+                    "vars": {
+                      "response": "🕐 **GODZINY OTWARCIA:**\n\n📅 **Poniedziałek-Piątek:** 9:00 - 20:00\n📅 **Sobota:** 9:00 - 18:00\n📅 **Niedziela:** 10:00 - 16:00\n\n📞 **Rezerwacje:** +48 123 456 789"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "print",
+      "params": { "text": "🤖 **ODPOWIEDŹ BOTA:**\n\n{{response}}" }
+    }
+  ]
+}

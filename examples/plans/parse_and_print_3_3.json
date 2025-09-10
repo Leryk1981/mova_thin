@@ -1,0 +1,10 @@
+{
+  "mova_version": "3.3",
+  "id": "parse-and-print-3-3",
+  "actions": [
+    { "type": "http_fetch", "endpoint": "https://jsonplaceholder.typicode.com/users", "method": "GET", "save_as": "resp" },
+    { "type": "parse_json", "from": "resp.text", "save_as": "users" },
+    { "type": "print", "message": "first={{users[0].name}}" }
+  ]
+}
+

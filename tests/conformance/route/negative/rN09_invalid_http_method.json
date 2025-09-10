@@ -1,0 +1,13 @@
+{
+  "route_version": "1.0",
+  "trigger": {
+    "type": "http",
+    "http": {
+      "path": "/test",
+      "method": 123
+    }
+  },
+  "invoke": {
+    "plan_ref": "test.handler"
+  }
+}

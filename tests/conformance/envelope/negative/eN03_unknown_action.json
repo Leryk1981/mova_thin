@@ -1,0 +1,11 @@
+{
+  "mova_version": "3.3",
+  "actions": [
+    {
+      "type": "unknown_action",
+      "params": {
+        "value": "This action type doesn't exist"
+      }
+    }
+  ]
+}

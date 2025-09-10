@@ -1,0 +1,16 @@
+{
+  "mova_version": "3.3",
+  "id": "hello-3-3",
+  "description": "Minimal MOVA 3.3 plan",
+  "policies": {
+    "timeout_ms": 10000
+  },
+  "actions": [
+    {
+      "type": "print",
+      "params": {
+        "text": "Hello from MOVA 3.3!"
+      }
+    }
+  ]
+}

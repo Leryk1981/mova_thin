@@ -1,0 +1,37 @@
+{
+  "mova_version": "3.3",
+  "id": "find-local-leads-3-3",
+  "description": "Demo: fetch and print basic info",
+  "policies": {
+    "timeout_ms": 15000,
+    "retry": {
+      "max_attempts": 2,
+      "backoff_ms": 500,
+      "strategy": "exp"
+    }
+  },
+  "actions": [
+    {
+      "type": "http_fetch",
+      "name": "fetch-users",
+      "params": {
+        "endpoint": "https://jsonplaceholder.typicode.com/users",
+        "method": "GET",
+        "headers": {
+          "accept": "application/json"
+        },
+        "timeout_ms": 8000
+      },
+      "save_as": "users_resp"
+    },
+    {
+      "type": "print",
+      "params": {
+        "text": {
+          "status": "{{users_resp.status}}",
+          "hint": "Replace with your real endpoint"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+fetch from="https://jsonplaceholder.typicode.com/users" method=GET as=users_resp
+transform from=users_resp.json pick=0.username as=first_user
+print "first={{first_user}}"
+transform template="user={{users_resp.json[1].name}} email={{users_resp.json[1].email}}" as=line2
+print "{{line2}}"
+

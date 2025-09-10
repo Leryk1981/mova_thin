@@ -1,0 +1,9 @@
+{
+  "mova_version": "3.3",
+  "id": "call-demo",
+  "actions": [
+    { "type": "call", "inline_plan": { "mova_version": "3.3", "id": "child", "actions": [ { "type": "print", "message": "child" } ] }, "save_as": "out" },
+    { "type": "print", "message": "{{out}}" }
+  ]
+}
+

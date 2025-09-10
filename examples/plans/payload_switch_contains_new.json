@@ -1,0 +1,10 @@
+{ "mova_version":"3.3",
+  "payload": { "webhook": { "message": { "text": "cześć" } } },
+  "actions":[
+    { "type":"if","params":{
+      "when":{ "path":"payload.webhook.message.text","contains":"cześć" },
+      "then":[ { "type":"print","message":"Привіт!" } ],
+      "else":[ { "type":"print","message":"Не розумію" } ]
+    }}
+  ]
+}

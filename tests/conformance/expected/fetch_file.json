@@ -1,0 +1,15 @@
+{
+  "mova_version": "3.3",
+  "id": "fetch_file",
+  "description": "Generated from VNL",
+  "policies": {
+    "timeout_ms": 15000
+  },
+  "actions": [
+    {
+      "type": "http_fetch",
+      "endpoint": "https://api.example.com/x",
+      "method": "GET"
+    }
+  ]
+}

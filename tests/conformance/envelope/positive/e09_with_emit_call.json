@@ -1,0 +1,23 @@
+{
+  "mova_version": "3.3",
+  "policies": {
+    "timeout_ms": 8000,
+    "dlq": {
+      "enabled": false
+    }
+  },
+  "actions": [
+    {
+      "type": "emit_event",
+      "channel": "user.created",
+      "payload": {
+        "user_id": "{{user.id}}",
+        "timestamp": "{{now}}"
+      }
+    },
+    {
+      "type": "call",
+      "plan_ref": "notifications.send_welcome_email"
+    }
+  ]
+}

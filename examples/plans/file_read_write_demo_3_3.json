@@ -1,0 +1,10 @@
+{
+  "mova_version": "3.3",
+  "id": "file-io",
+  "actions": [
+    { "type": "file_write", "path": "./out.txt", "data": "hi" },
+    { "type": "file_read", "path": "./out.txt", "save_as": "f" },
+    { "type": "print", "message": "{{f.data}}" }
+  ]
+}
+

@@ -1,0 +1,9 @@
+{
+  "mova_version": "3.3",
+  "actions": [
+    {
+      "type": "print",
+      "message": "Executing parse_csv with params: _csv_url_"
+    }
+  ]
+}

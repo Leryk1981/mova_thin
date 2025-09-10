@@ -1,0 +1,4 @@
+# Отримати список користувачів і вивести статус + ім'я першого
+fetch from="https://jsonplaceholder.typicode.com/users" method=GET as=users_resp
+print "status={{users_resp.status}} first={{users_resp.json[0].name}}"
+

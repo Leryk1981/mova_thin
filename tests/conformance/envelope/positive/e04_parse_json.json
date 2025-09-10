@@ -1,0 +1,28 @@
+{
+  "mova_version": "3.3",
+  "policies": {
+    "timeout_ms": 5000,
+    "retry": {
+      "max_attempts": 3,
+      "strategy": "exp",
+      "backoff_ms": [200, 500, 1000]
+    }
+  },
+  "actions": [
+    {
+      "type": "http_fetch",
+      "endpoint": "https://api.example.com/data.json",
+      "method": "GET"
+    },
+    {
+      "type": "parse_json",
+      "from": "resp.text",
+      "save_as": "parsed_data"
+    },
+    {
+      "type": "log",
+      "message": "ID: {{parsed_data}}",
+      "level": "info"
+    }
+  ]
+}

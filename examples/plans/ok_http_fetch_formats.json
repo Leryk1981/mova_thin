@@ -1,0 +1,27 @@
+{
+  "mova_version": "3.3",
+  "id": "test-http-formats",
+  "actions": [
+    {
+      "type": "http_fetch",
+      "name": "fetch_api_data",
+      "endpoint": "https://api.example.com/data",
+      "method": "POST",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer token123",
+        "User-Agent": "MOVA/3.3"
+      },
+      "payload": {
+        "query": "test data",
+        "limit": 10
+      },
+      "timeout_ms": 30000,
+      "retry": {
+        "max_attempts": 3,
+        "backoff_ms": 1000
+      },
+      "save_as": "api_response"
+    }
+  ]
+}

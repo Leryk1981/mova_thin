@@ -1,0 +1,22 @@
+{
+  "mova_version": "3.3",
+  "policies": {
+    "timeout_ms": 5000,
+    "retry": {
+      "max_attempts": 3,
+      "backoff_ms": 1000
+    }
+  },
+  "actions": [
+    {
+      "type": "http_fetch",
+      "params": {
+        "endpoint": "https://api.example.com/data",
+        "method": "POST",
+        "payload": {
+          "test": true
+        }
+      }
+    }
+  ]
+}

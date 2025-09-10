@@ -1,0 +1,14 @@
+{
+  "route_version": "1.0",
+  "description": "Cron heartbeat → inline envelope",
+  "trigger": { "type": "schedule", "schedule": { "cron": "*/5 * * * *" } },
+  "invoke": {
+    "plan": {
+      "mova_version": "3.3",
+      "actions": [
+        { "type": "print", "params": { "text": "Heartbeat at {{timestamp}}" } }
+      ],
+      "vars": { "timestamp": "{{now}}" }
+    }
+  }
+}

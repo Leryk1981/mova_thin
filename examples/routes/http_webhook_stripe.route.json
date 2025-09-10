@@ -1,0 +1,7 @@
+{
+  "route_version": "1.0",
+  "description": "Stripe invoice.paid → plan_ref",
+  "trigger": { "type": "http", "http": { "path": "/webhooks/stripe", "method": "POST" } },
+  "policies": { "timeout_ms": 2000, "budget_ms": 10000 },
+  "invoke": { "plan_ref": "examples/plans/stripe_invoice_paid_3_3.json" }
+}

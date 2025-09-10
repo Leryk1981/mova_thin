@@ -1,0 +1,14 @@
+{
+  "mova_version": "3.3",
+  "id": "retry-dlq-demo-3-3",
+  "description": "Demonstrate retry + DLQ on failing HTTP endpoint",
+  "policies": {
+    "retry": { "max_attempts": 2, "backoff_ms": [0, 200] },
+    "dlq": { "enabled": true }
+  },
+  "actions": [
+    { "type": "http_fetch", "endpoint": "https://nonexistent.example.invalid/users", "method": "GET", "save_as": "resp" },
+    { "type": "print", "message": "SHOULD_NOT_PRINT" }
+  ]
+}
+

@@ -1,0 +1,14 @@
+{
+  "route_version": "1.0",
+  "description": "HTTP trigger -> plan_ref demo",
+  "trigger": {
+    "type": "http",
+    "http": {
+      "path": "/status",
+      "method": "GET"
+    }
+  },
+  "invoke": {
+    "plan_ref": "examples/plans/http_status_3_3.json"
+  }
+}

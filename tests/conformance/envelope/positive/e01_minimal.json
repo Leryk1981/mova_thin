@@ -1,0 +1,22 @@
+{
+  "mova_version": "3.3",
+  "policies": {
+    "timeout_ms": 5000,
+    "budget_ms": 10000,
+    "retry": {
+      "max_attempts": 3,
+      "strategy": "exp",
+      "backoff_ms": [200, 500, 1000]
+    },
+    "dlq": {
+      "enabled": false
+    }
+  },
+  "actions": [
+    {
+      "type": "log",
+      "message": "Hello World",
+      "level": "info"
+    }
+  ]
+}

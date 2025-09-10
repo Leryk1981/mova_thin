@@ -1,0 +1,20 @@
+{
+  "route_version": "1.0",
+  "trigger": {
+    "type": "queue",
+    "queue": {
+      "name": "user_events"
+    }
+  },
+  "invoke": {
+    "plan_ref": "users.process_event"
+  },
+  "policies": {
+    "timeout_ms": 15000,
+    "retry": {
+      "max_attempts": 3,
+      "backoff_ms": 1000,
+      "strategy": "fixed"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "route_version": "1.0",
+  "trigger": {
+    "type": "websocket",
+    "websocket": {
+      "path": "/ws"
+    }
+  },
+  "invoke": {
+    "plan_ref": "websocket.handler"
+  }
+}

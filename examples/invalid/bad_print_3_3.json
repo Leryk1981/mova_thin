@@ -1,0 +1,7 @@
+{
+  "mova_version": "3.3",
+  "id": "bad-print-3-3",
+  "actions": [
+    { "type": "print" }
+  ]
+}

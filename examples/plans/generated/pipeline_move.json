@@ -1,0 +1,9 @@
+{
+  "mova_version": "3.3",
+  "actions": [
+    {
+      "type": "print",
+      "message": "Executing pipeline_move with params: _deal_id_, _stage_"
+    }
+  ]
+}

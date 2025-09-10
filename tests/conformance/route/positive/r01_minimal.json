@@ -1,0 +1,25 @@
+{
+  "route_version": "1.0",
+  "trigger": {
+    "type": "http",
+    "http": {
+      "path": "/webhook",
+      "method": "POST"
+    }
+  },
+  "invoke": {
+    "plan_ref": "booking.book_by_time"
+  },
+  "policies": {
+    "timeout_ms": 5000,
+    "retry": {
+      "max_attempts": 3,
+      "strategy": "exp",
+      "backoff_ms": [
+        200,
+        500,
+        1000
+      ]
+    }
+  }
+}

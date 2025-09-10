@@ -1,0 +1,12 @@
+{
+  "route_version": "1.0",
+  "trigger": {
+    "type": "unknown_trigger",
+    "unknown": {
+      "config": "invalid"
+    }
+  },
+  "invoke": {
+    "plan_ref": "examples/test.json"
+  }
+}

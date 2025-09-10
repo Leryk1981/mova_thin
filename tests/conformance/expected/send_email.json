@@ -1,0 +1,22 @@
+{
+  "mova_version": "3.3",
+  "id": "send_email",
+  "description": "Generated from VNL",
+  "policies": {
+    "timeout_ms": 12000,
+    "retry": {
+      "backoff_ms": 400
+    }
+  },
+  "actions": [
+    {
+      "type": "emit_event",
+      "channel": "smtp",
+      "payload": {
+        "to": "user@example.com",
+        "subject": "Hello",
+        "text": "Hi"
+      }
+    }
+  ]
+}

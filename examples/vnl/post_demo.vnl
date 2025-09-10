@@ -1,0 +1,3 @@
+post url="https://httpbin.org/post" payload='{"ping":1}' as=resp
+print "status={{resp.status}}"
+

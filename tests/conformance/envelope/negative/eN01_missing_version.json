@@ -1,0 +1,10 @@
+{
+  "actions": [
+    {
+      "type": "print",
+      "params": {
+        "value": "Missing mova_version"
+      }
+    }
+  ]
+}

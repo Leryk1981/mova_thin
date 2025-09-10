@@ -1,0 +1,22 @@
+{
+  "mova_version": "3.3",
+  "policies": {
+    "timeout_ms": 15000,
+    "retry": {
+      "max_attempts": 5,
+      "backoff_ms": [100, 200, 400, 800, 1600],
+      "strategy": "exp"
+    }
+  },
+  "actions": [
+    {
+      "type": "http_fetch",
+      "endpoint": "https://api.example.com/health",
+      "method": "GET"
+    },
+    {
+      "type": "assert",
+      "expr": "{{last_result.status}} == 200"
+    }
+  ]
+}

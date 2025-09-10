@@ -1,0 +1,35 @@
+{
+  "mova_version": "3.3",
+  "id": "from_vnl_transform_3_3",
+  "description": "Generated from VNL",
+  "policies": {
+    "timeout_ms": 15000
+  },
+  "actions": [
+    {
+      "type": "http_fetch",
+      "endpoint": "https://jsonplaceholder.typicode.com/users",
+      "method": "GET",
+      "save_as": "users_resp"
+    },
+    {
+      "type": "transform",
+      "from": "users_resp.json",
+      "pick": "0.username",
+      "save_as": "first_user"
+    },
+    {
+      "type": "print",
+      "message": "first={{first_user}}"
+    },
+    {
+      "type": "transform",
+      "template": "\"user={{users_resp.json[1].name}}",
+      "save_as": "line2"
+    },
+    {
+      "type": "print",
+      "message": "{{line2}}"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "mova_version": "3.3",
+  "id": "with_policies",
+  "description": "Generated from VNL",
+  "policies": {
+    "timeout_ms": 15000,
+    "dlq": {
+      "enabled": true
+    }
+  },
+  "actions": [
+    {
+      "type": "http_fetch",
+      "endpoint": "https://jsonplaceholder.typicode.com/users",
+      "method": "GET",
+      "save_as": "users_resp"
+    },
+    {
+      "type": "print",
+      "message": "status={{users_resp.status}} first={{users_resp.json[0].name}}"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "mova_version": "3.3",
+  "id": "notify_slack",
+  "description": "Generated from VNL",
+  "policies": {
+    "timeout_ms": 15000,
+    "budget_ms": 5000
+  },
+  "actions": [
+    {
+      "type": "emit_event",
+      "channel": "slack",
+      "payload": {
+        "target": "#ops",
+        "text": "Deploy done"
+      }
+    }
+  ]
+}

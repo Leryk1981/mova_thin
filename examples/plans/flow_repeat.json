@@ -1,0 +1,14 @@
+{
+  "mova_version": "3.3",
+  "actions": [
+    {
+      "type": "repeat",
+      "params": {
+        "times": 2,
+        "body": [
+          { "type": "print", "message": "tick" }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "route_version": "1.0",
+  "trigger": {
+    "type": "http",
+    "http": {
+      "path": "/api/data",
+      "method": "GET"
+    }
+  },
+  "invoke": {
+    "plan_ref": "examples/data-handler.json"
+  },
+  "policies": {
+    "timeout_ms": 30000,
+    "retry": {
+      "max_attempts": 2,
+      "backoff_ms": 500
+    }
+  }
+}

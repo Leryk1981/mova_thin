@@ -1,0 +1,512 @@
+{
+  "mova_version": "3.3",
+  "id": "cut-or-die-barbershop",
+  "description": "🔥 Cut or Die Barbershop - Complete chatbot for real business",
+  "policies": {
+    "timeout_ms": 10000,
+    "retry": {
+      "max_attempts": 2,
+      "backoff_ms": 500
+    }
+  },
+  "actions": [
+    {
+      "type": "set",
+      "params": {
+        "vars": {
+          "user_message": "{{user_input}}",
+          "response": "🤔 **NIE ROZUMIEM**\n\nSpróbuj napisać:\n• 'menu' - pełna lista opcji\n• 'pomoc' - jak korzystać z bota\n• 'człowiek' - połączenie z obsługą\n\nLub zadaj konkretne pytanie!",
+          
+          "welcome_message": "🔥 **WITAJ W CUT OR DIE BARBERSHOP!**\n\n👋 Najlepszy barbershop w Rotmance!\n\n📋 **CO MOGĘ DLA CIEBIE ZROBIĆ?**\n• 📅 'rezerwacja' - zarezerwuj wizytę\n• 💰 'cennik' - zobacz nasze ceny\n• 👨‍💼 'barberzy' - poznaj nasz zespół\n• 🎁 'promocje' - aktualne oferty\n• 📍 'lokalizacja' - jak do nas dotrzeć\n• 📞 'kontakt' - wszystkie sposoby kontaktu\n• ⏰ 'godziny' - kiedy jesteśmy otwarci\n• 💳 'płatność' - sposoby płatności\n• 🦠 'covid' - zasady bezpieczeństwa\n• 📋 'menu' - pełna lista opcji\n\n💡 **Napisz słowo kluczowe lub zadaj pytanie!**",
+          
+          "booking_message": "📅 **REZERWACJA WIZYTY**\n\n💇‍♂️ **NASZE USŁUGI:**\n• Strzyżenie klasyczne - 90 PLN (40 min)\n• Fade/Undercut - 100 PLN (45 min)\n• COMBO (strzyżenie + broda) - 140 PLN (60 min)\n• Hot Shave (golenie brzytwą) - 80 PLN (40 min)\n• Stylizacja brody - 60 PLN (30 min)\n• Strzyżenie dziecięce - 60 PLN (30 min)\n\n📞 **REZERWUJ TERAZ:**\n🌐 **Online:** booksy.com/pl-pl/196062_cut-or-die-barbershop\n📱 **Telefon:** +48 508 833 713\n📧 **Email:** rezerwacja@cutordie.pl\n\n⏰ **DOSTĘPNE TERMINY:**\n• Poniedziałek-Piątek: 10:00-19:00\n• Sobota: 10:00-16:00\n• Niedziela: ZAMKNIĘTE\n\n💡 **WSKAZÓWKA:** Rezerwuj z wyprzedzeniem - jesteśmy bardzo popularni!",
+          
+          "pricing_message": "💰 **CENNIK USŁUG CUT OR DIE**\n\n💇‍♂️ **STRZYŻENIE:**\n• Klasyczne - 90 PLN\n• Fade/Undercut - 100 PLN\n• Stylizacja + modelowanie - 110 PLN\n• Korekta (do 2 tygodni) - 40 PLN\n\n🧔 **BRODA I WĄSY:**\n• Przycinanie brody - 50 PLN\n• Stylizacja brody - 60 PLN\n• Hot Shave (golenie brzytwą) - 80 PLN\n• Stylizacja wąsów - 30 PLN\n\n🔥 **COMBO PAKIETY:**\n• Strzyżenie + Broda - 140 PLN (oszczędzasz 10 PLN!)\n• Full Service (wszystko) - 180 PLN (oszczędzasz 30 PLN!)\n• VIP Package (+ masaż głowy) - 200 PLN\n\n👦 **DZIECI (do 12 lat):**\n• Strzyżenie dziecięce - 60 PLN\n• Pierwszy raz (gratis zdjęcie) - 60 PLN\n\n🎁 **DODATKI:**\n• Masaż głowy - 25 PLN\n• Stylizacja włosów - 15 PLN\n• Czyszczenie uszu - 20 PLN",
+
+          "barbers_message": "👨‍💼 **NASI MASTER BARBERZY**\n\n🔥 **KAMIL KOWALSKI - Owner & Master Barber**\n• 8+ lat doświadczenia\n• Specjalność: klasyczne cięcia, fade, pompadour\n• Certyfikat Master Barber Academy London\n• Instagram: @kamil_cutordie\n\n✂️ **MATEUSZ NOWAK - Senior Barber**\n• 5+ lat doświadczenia\n• Specjalność: nowoczesne style, undercut, beard styling\n• Mistrz hot shave i golenia brzytwą\n• Ulubieniec klientów biznesowych\n\n🎨 **JAKUB WIŚNIEWSKI - Creative Barber**\n• 3+ lat doświadczenia\n• Specjalność: kreatywne cięcia, hair art, młodzieżowe style\n• Młody talent z nieograniczoną kreatywnością\n• TikTok: @jakub_barber_art\n\n👑 **PAWEŁ ZIELIŃSKI - VIP Barber**\n• 6+ lat doświadczenia\n• Specjalność: VIP obsługa, executive cuts\n• Dyskrecja i profesjonalizm na najwyższym poziomie\n• Obsługuje celebrytów i biznesmenów\n\n📅 **Wybierz swojego barbera przy rezerwacji!**\n💡 **Każdy barber ma swój unikalny styl - znajdź swojego!**",
+
+          "promotions_message": "🎁 **AKTUALNE PROMOCJE - GRUDZIEŃ 2024**\n\n🔥 **NOWY KLIENT - 20% ZNIŻKI**\n• Kod: NEWCUT20\n• Ważny na pierwsze strzyżenie\n• Nie łączy się z innymi promocjami\n\n👥 **PRZYPROWADŹ ZNAJOMEGO**\n• Ty: -15% na następną usługę\n• Znajomy: -20% na pierwszą wizytę\n• Bez limitu - im więcej znajomych, tym więcej oszczędzasz!\n\n📅 **HAPPY HOURS (Pon-Śr 10:00-14:00)**\n• -10% na wszystkie usługi\n• Automatyczna zniżka - bez kodu\n• Idealne dla freelancerów i studentów\n\n🎂 **URODZINOWA NIESPODZIANKA**\n• -25% w miesiącu urodzin\n• Pokaż dowód osobisty\n• + darmowe zdjęcie z nową fryzurą\n\n💳 **KARTA STAŁEGO KLIENTA**\n• Co 10. strzyżenie GRATIS\n• Dodatkowe 5% zniżki na wszystko\n• Priorytetowe terminy\n• SMS z przypomnieniami\n\n🎄 **ŚWIĄTECZNA OFERTA (do 31.12)**\n• Kup voucher 500 PLN, zapłać 400 PLN\n• Idealny prezent dla mężczyzny\n• Ważny 12 miesięcy\n\n💡 **ŁĄCZ PROMOCJE I OSZCZĘDZAJ JESZCZE WIĘCEJ!**",
+
+          "location_message": "📍 **LOKALIZACJA CUT OR DIE**\n\n🏪 **ADRES:**\nCut or Die Barbershop\n📮 Bajki 13B/71\n🏘️ 83-010 Rotmanka\n🇵🇱 Polska\n\n🚗 **DOJAZD SAMOCHODEM:**\n• Parking: 10 miejsc przed lokalem (GRATIS)\n• Dodatkowy parking: Galeria Rotmanka (200m)\n• GPS: 54.2619, 19.0317\n• Wjazd od ulicy Bajki\n\n🚌 **KOMUNIKACJA PUBLICZNA:**\n• Autobus 15, 23 - przystanek 'Rotmanka Centrum'\n• Tramwaj 7 - przystanek 'Bajki' (300m spacer)\n• PKS - dworzec Rotmanka (1km)\n\n🚶 **PUNKTY ORIENTACYJNE:**\n• Obok: Żabka, apteka DOZ\n• Naprzeciwko: McDonald's\n• 2 minuty od Galerii Rotmanka\n\n🗺️ **MAPA I DOJAZD:**\n• Google Maps: bit.ly/cutordie-mapa\n• Waze: 'Cut or Die Barbershop Rotmanka'\n• Apple Maps: dostępne\n\n📱 **POTRZEBUJESZ POMOCY Z DOJAZDEM?**\nZadzwoń: +48 508 833 713 - poprowadzimy Cię krok po kroku!",
+
+          "contact_message": "📞 **KONTAKT CUT OR DIE**\n\n📱 **TELEFON:**\n+48 508 833 713\n• Codziennie 9:00-20:00\n• Rezerwacje, pytania, porady\n• WhatsApp dostępny\n\n📧 **EMAIL:**\n• Ogólny: info@cutordie.pl\n• Rezerwacje: rezerwacja@cutordie.pl\n• Współpraca: biznes@cutordie.pl\n• Odpowiedź w 24h (dni robocze)\n\n📱 **SOCIAL MEDIA:**\n• Instagram: @cut_or_die_barbershop (5k followers)\n• Facebook: Cut or Die Barbershop Rotmanka\n• TikTok: @cutordiebarber (viral videos!)\n• YouTube: Cut or Die Tutorials\n\n💬 **MESSENGER:**\n• Facebook Messenger: natychmiastowe odpowiedzi\n• Instagram DM: zdjęcia przed/po\n• WhatsApp: +48 508 833 713\n\n🌐 **STRONA WWW:**\nwww.cutordie.pl\n• Galeria prac\n• Online booking\n• Blog o stylizacji\n• Porady barberskie\n\n📝 **OPINIE I RECENZJE:**\n• Google: 4.9/5 (200+ opinii)\n• Facebook: 4.8/5\n• Booksy: 4.9/5\n\n💡 **NAJSZYBSZY KONTAKT: WhatsApp lub telefon!**",
+
+          "hours_message": "⏰ **GODZINY OTWARCIA CUT OR DIE**\n\n📅 **STANDARDOWE GODZINY:**\n• **Poniedziałek-Piątek:** 10:00 - 19:00\n• **Sobota:** 10:00 - 16:00\n• **Niedziela:** 🚫 ZAMKNIĘTE\n\n⚠️ **WAŻNE INFORMACJE:**\n• Ostatni klient: 30 min przed zamknięciem\n• Rezerwacje do 18:30 (Pn-Pt) i 15:30 (Sob)\n• W święta - godziny mogą być skrócone\n\n🏖️ **WAKACJE (LIPIEC-SIERPIEŃ):**\n• Poniedziałek-Piątek: 11:00 - 18:00\n• Sobota: 10:00 - 15:00\n• Niedziela: ZAMKNIĘTE\n\n🎄 **ŚWIĘTA I DNI WOLNE:**\n• 24.12 - 26.12: ZAMKNIĘTE\n• 31.12 - 01.01: ZAMKNIĘTE\n• Inne święta: sprawdź na Facebook\n\n📞 **PRZED PRZYJŚCIEM:**\nZadzwoń +48 508 833 713 - potwierdzimy dostępność!",
+
+          "payment_message": "💳 **SPOSOBY PŁATNOŚCI**\n\n✅ **AKCEPTUJEMY:**\n• 💵 Gotówka (PLN)\n• 💳 Karty płatnicze (Visa, Mastercard, Maestro)\n• 📱 BLIK (natychmiastowe płatności)\n• 📲 Google Pay / Apple Pay\n• 🏦 Przelewy24\n• 💰 Vouchery Cut or Die\n\n❌ **NIE AKCEPTUJEMY:**\n• Kryptowaluty (Bitcoin, Ethereum, etc.)\n• Vouchery innych salonów\n• Płatność w ratach\n• Czeki\n\n💡 **INFORMACJE:**\n• Płatność po wykonanej usłudze\n• Napiwek mile widziany (10-15% standardowo)\n• Faktury VAT na życzenie\n• Paragon fiskalny zawsze\n\n🎁 **VOUCHERY PREZENTOWE:**\n• Dostępne w dowolnej kwocie\n• Ważne 12 miesięcy\n• Idealny prezent dla mężczyzny\n• Kupuj online: www.cutordie.pl/voucher\n\n💰 **PŁATNOŚĆ BEZGOTÓWKOWA PREFEROWANA!**",
+
+          "covid_message": "🦠 **ZASADY BEZPIECZEŃSTWA COVID-19**\n\n✅ **NASZE DZIAŁANIA:**\n• 🧽 Dezynfekcja narzędzi po każdym kliencie\n• 🌬️ Regularne wietrzenie lokalu (co 30 min)\n• 🧴 Środki dezynfekujące przy wejściu\n• 👥 Zachowanie dystansu gdy możliwe\n• 🧼 Częste mycie rąk przez personel\n• 😷 Maseczki dla personelu (na życzenie klienta)\n\n👤 **DLA KLIENTÓW:**\n• ⏰ Przyjdź punktualnie (nie wcześniej niż 5 min)\n• 🤒 W przypadku objawów - przełóż wizytę\n• 💳 Płatność bezgotówkowa preferowana\n• 🧴 Dezynfekcja rąk przy wejściu\n• 😷 Maseczka opcjonalna (Twój wybór)\n\n📋 **AKTUALNE ZASADY:**\n• Stosujemy się do wytycznych sanepidu\n• Regularne testy personelu\n• Monitoring sytuacji epidemicznej\n• Elastyczne dostosowanie do przepisów\n\n📞 **PYTANIA O BEZPIECZEŃSTWO?**\nZadzwoń: +48 508 833 713\n\n💚 **TWOJE ZDROWIE TO NASZ PRIORYTET!**",
+
+          "menu_message": "📋 **PEŁNE MENU OPCJI CUT OR DIE**\n\n🏠 **GŁÓWNE USŁUGI:**\n• 'rezerwacja' / 'booking' / 'termin' - zarezerwuj wizytę\n• 'cennik' / 'ceny' / 'ile kosztuje' - zobacz ceny\n• 'barberzy' / 'zespół' / 'fryzjerzy' - poznaj nasz zespół\n\n🎯 **INFORMACJE:**\n• 'promocje' / 'zniżki' / 'oferty' - aktualne promocje\n• 'lokalizacja' / 'adres' / 'gdzie' - jak do nas dotrzeć\n• 'kontakt' / 'telefon' / 'email' - wszystkie kontakty\n• 'godziny' / 'otwarcie' - kiedy jesteśmy dostępni\n\n💡 **DODATKOWE:**\n• 'płatność' / 'karta' / 'gotówka' - sposoby płatności\n• 'covid' / 'bezpieczeństwo' - zasady sanitarne\n• 'parking' - informacje o parkowaniu\n• 'opinie' / 'recenzje' - co mówią klienci\n\n🆘 **POMOC:**\n• 'pomoc' / 'help' - instrukcja obsługi\n• 'człowiek' / 'obsługa' - połączenie z personelem\n• 'menu' - ta lista opcji\n\n🎨 **INSPIRACJE:**\n• 'galeria' - nasze prace\n• 'trendy' - najnowsze style\n• 'porady' - jak dbać o włosy\n\n💬 **Po prostu napisz słowo kluczowe lub zadaj pytanie!**",
+
+          "help_message": "🆘 **JAK KORZYSTAĆ Z BOTA CUT OR DIE**\n\n💬 **PODSTAWY:**\n• Napisz słowo kluczowe (np. 'cennik', 'rezerwacja')\n• Zadaj pytanie po polsku\n• Bot rozumie różne formy słów\n\n🎯 **PRZYKŁADY ZAPYTAŃ:**\n• 'Ile kosztuje strzyżenie?' → cennik\n• 'Jak się umówić?' → rezerwacja\n• 'Gdzie jesteście?' → lokalizacja\n• 'Jakie macie promocje?' → aktualne oferty\n\n📋 **SZYBKIE KOMENDY:**\n• 'menu' - wszystkie opcje\n• 'kontakt' - telefon i email\n• 'godziny' - kiedy otwarci\n• 'cennik' - wszystkie ceny\n\n🤖 **MOŻLIWOŚCI BOTA:**\n• ✅ Informacje o usługach\n• ✅ Ceny i promocje\n• ✅ Kontakt i lokalizacja\n• ✅ Godziny otwarcia\n• ❌ Bezpośrednia rezerwacja (użyj telefonu/Booksy)\n\n👨‍💼 **POTRZEBUJESZ CZŁOWIEKA?**\n• Napisz 'człowiek' lub 'obsługa'\n• Zadzwoń: +48 508 833 713\n• WhatsApp: +48 508 833 713\n\n💡 **WSKAZÓWKA:** Bot działa 24/7, ale personel odpowiada 9:00-20:00!"
+        }
+      }
+    },
+    
+    {
+      "type": "print",
+      "params": {
+        "text": "🔥 Cut or Die Barbershop Bot"
+      }
+    },
+    {
+      "type": "print",
+      "params": {
+        "text": "📨 Otrzymano wiadomość: '{{user_message}}'"
+      }
+    },
+
+    {
+      "type": "if",
+      "params": {
+        "when": { "path": "user_message", "eq": "cześć" },
+        "then": [
+          { "type": "set", "params": { "vars": { "response": "{{welcome_message}}" } } }
+        ]
+      }
+    },
+    {
+      "type": "if",
+      "params": {
+        "when": { "path": "user_message", "eq": "witaj" },
+        "then": [
+          { "type": "set", "params": { "vars": { "response": "{{welcome_message}}" } } }
+        ]
+      }
+    },
+    {
+      "type": "if",
+      "params": {
+        "when": { "path": "user_message", "eq": "hello" },
+        "then": [
+          { "type": "set", "params": { "vars": { "response": "{{welcome_message}}" } } }
+        ]
+      }
+    },
+    {
+      "type": "if",
+      "params": {
+        "when": { "path": "user_message", "eq": "start" },
+        "then": [
+          { "type": "set", "params": { "vars": { "response": "{{welcome_message}}" } } }
+        ]
+      }
+    },
+
+    {
+      "type": "if",
+      "params": {
+        "when": { "path": "user_message", "eq": "rezerwacja" },
+        "then": [
+          { "type": "set", "params": { "vars": { "response": "{{booking_message}}" } } }
+        ]
+      }
+    },
+    {
+      "type": "if",
+      "params": {
+        "when": { "path": "user_message", "eq": "booking" },
+        "then": [
+          { "type": "set", "params": { "vars": { "response": "{{booking_message}}" } } }
+        ]
+      }
+    },
+    {
+      "type": "if",
+      "params": {
+        "when": { "path": "user_message", "eq": "termin" },
+        "then": [
+          { "type": "set", "params": { "vars": { "response": "{{booking_message}}" } } }
+        ]
+      }
+    },
+    {
+      "type": "if",
+      "params": {
+        "when": { "path": "user_message", "eq": "wizyta" },
+        "then": [
+          { "type": "set", "params": { "vars": { "response": "{{booking_message}}" } } }
+        ]
+      }
+    },
+
+    {
+      "type": "if",
+      "params": {
+        "when": { "path": "user_message", "eq": "cennik" },
+        "then": [
+          { "type": "set", "params": { "vars": { "response": "{{pricing_message}}" } } }
+        ]
+      }
+    },
+    {
+      "type": "if",
+      "params": {
+        "when": { "path": "user_message", "eq": "ceny" },
+        "then": [
+          { "type": "set", "params": { "vars": { "response": "{{pricing_message}}" } } }
+        ]
+      }
+    },
+    {
+      "type": "if",
+      "params": {
+        "when": { "path": "user_message", "eq": "cena" },
+        "then": [
+          { "type": "set", "params": { "vars": { "response": "{{pricing_message}}" } } }
+        ]
+      }
+    },
+    {
+      "type": "if",
+      "params": {
+        "when": { "path": "user_message", "eq": "koszt" },
+        "then": [
+          { "type": "set", "params": { "vars": { "response": "{{pricing_message}}" } } }
+        ]
+      }
+    },
+    {
+      "type": "if",
+      "params": {
+        "when": { "path": "user_message", "eq": "ile kosztuje" },
+        "then": [
+          { "type": "set", "params": { "vars": { "response": "{{pricing_message}}" } } }
+        ]
+      }
+    },
+
+    {
+      "type": "if",
+      "params": {
+        "when": { "path": "user_message", "eq": "barberzy" },
+        "then": [
+          { "type": "set", "params": { "vars": { "response": "{{barbers_message}}" } } }
+        ]
+      }
+    },
+    {
+      "type": "if",
+      "params": {
+        "when": { "path": "user_message", "eq": "zespół" },
+        "then": [
+          { "type": "set", "params": { "vars": { "response": "{{barbers_message}}" } } }
+        ]
+      }
+    },
+    {
+      "type": "if",
+      "params": {
+        "when": { "path": "user_message", "eq": "fryzjer" },
+        "then": [
+          { "type": "set", "params": { "vars": { "response": "{{barbers_message}}" } } }
+        ]
+      }
+    },
+    {
+      "type": "if",
+      "params": {
+        "when": { "path": "user_message", "eq": "fryzjerzy" },
+        "then": [
+          { "type": "set", "params": { "vars": { "response": "{{barbers_message}}" } } }
+        ]
+      }
+    },
+
+    {
+      "type": "if",
+      "params": {
+        "when": { "path": "user_message", "eq": "promocje" },
+        "then": [
+          { "type": "set", "params": { "vars": { "response": "{{promotions_message}}" } } }
+        ]
+      }
+    },
+    {
+      "type": "if",
+      "params": {
+        "when": { "path": "user_message", "eq": "zniżka" },
+        "then": [
+          { "type": "set", "params": { "vars": { "response": "{{promotions_message}}" } } }
+        ]
+      }
+    },
+    {
+      "type": "if",
+      "params": {
+        "when": { "path": "user_message", "eq": "zniżki" },
+        "then": [
+          { "type": "set", "params": { "vars": { "response": "{{promotions_message}}" } } }
+        ]
+      }
+    },
+    {
+      "type": "if",
+      "params": {
+        "when": { "path": "user_message", "eq": "oferta" },
+        "then": [
+          { "type": "set", "params": { "vars": { "response": "{{promotions_message}}" } } }
+        ]
+      }
+    },
+    {
+      "type": "if",
+      "params": {
+        "when": { "path": "user_message", "eq": "oferty" },
+        "then": [
+          { "type": "set", "params": { "vars": { "response": "{{promotions_message}}" } } }
+        ]
+      }
+    },
+
+    {
+      "type": "if",
+      "params": {
+        "when": { "path": "user_message", "eq": "lokalizacja" },
+        "then": [
+          { "type": "set", "params": { "vars": { "response": "{{location_message}}" } } }
+        ]
+      }
+    },
+    {
+      "type": "if",
+      "params": {
+        "when": { "path": "user_message", "eq": "adres" },
+        "then": [
+          { "type": "set", "params": { "vars": { "response": "{{location_message}}" } } }
+        ]
+      }
+    },
+    {
+      "type": "if",
+      "params": {
+        "when": { "path": "user_message", "eq": "gdzie" },
+        "then": [
+          { "type": "set", "params": { "vars": { "response": "{{location_message}}" } } }
+        ]
+      }
+    },
+    {
+      "type": "if",
+      "params": {
+        "when": { "path": "user_message", "eq": "dojazd" },
+        "then": [
+          { "type": "set", "params": { "vars": { "response": "{{location_message}}" } } }
+        ]
+      }
+    },
+    {
+      "type": "if",
+      "params": {
+        "when": { "path": "user_message", "eq": "parking" },
+        "then": [
+          { "type": "set", "params": { "vars": { "response": "{{location_message}}" } } }
+        ]
+      }
+    },
+
+    {
+      "type": "if",
+      "params": {
+        "when": { "path": "user_message", "eq": "kontakt" },
+        "then": [
+          { "type": "set", "params": { "vars": { "response": "{{contact_message}}" } } }
+        ]
+      }
+    },
+    {
+      "type": "if",
+      "params": {
+        "when": { "path": "user_message", "eq": "telefon" },
+        "then": [
+          { "type": "set", "params": { "vars": { "response": "{{contact_message}}" } } }
+        ]
+      }
+    },
+    {
+      "type": "if",
+      "params": {
+        "when": { "path": "user_message", "eq": "email" },
+        "then": [
+          { "type": "set", "params": { "vars": { "response": "{{contact_message}}" } } }
+        ]
+      }
+    },
+
+    {
+      "type": "if",
+      "params": {
+        "when": { "path": "user_message", "eq": "godziny" },
+        "then": [
+          { "type": "set", "params": { "vars": { "response": "{{hours_message}}" } } }
+        ]
+      }
+    },
+    {
+      "type": "if",
+      "params": {
+        "when": { "path": "user_message", "eq": "otwarcie" },
+        "then": [
+          { "type": "set", "params": { "vars": { "response": "{{hours_message}}" } } }
+        ]
+      }
+    },
+    {
+      "type": "if",
+      "params": {
+        "when": { "path": "user_message", "eq": "kiedy" },
+        "then": [
+          { "type": "set", "params": { "vars": { "response": "{{hours_message}}" } } }
+        ]
+      }
+    },
+
+    {
+      "type": "if",
+      "params": {
+        "when": { "path": "user_message", "eq": "płatność" },
+        "then": [
+          { "type": "set", "params": { "vars": { "response": "{{payment_message}}" } } }
+        ]
+      }
+    },
+    {
+      "type": "if",
+      "params": {
+        "when": { "path": "user_message", "eq": "karta" },
+        "then": [
+          { "type": "set", "params": { "vars": { "response": "{{payment_message}}" } } }
+        ]
+      }
+    },
+    {
+      "type": "if",
+      "params": {
+        "when": { "path": "user_message", "eq": "gotówka" },
+        "then": [
+          { "type": "set", "params": { "vars": { "response": "{{payment_message}}" } } }
+        ]
+      }
+    },
+    {
+      "type": "if",
+      "params": {
+        "when": { "path": "user_message", "eq": "blik" },
+        "then": [
+          { "type": "set", "params": { "vars": { "response": "{{payment_message}}" } } }
+        ]
+      }
+    },
+
+    {
+      "type": "if",
+      "params": {
+        "when": { "path": "user_message", "eq": "covid" },
+        "then": [
+          { "type": "set", "params": { "vars": { "response": "{{covid_message}}" } } }
+        ]
+      }
+    },
+    {
+      "type": "if",
+      "params": {
+        "when": { "path": "user_message", "eq": "bezpieczeństwo" },
+        "then": [
+          { "type": "set", "params": { "vars": { "response": "{{covid_message}}" } } }
+        ]
+      }
+    },
+    {
+      "type": "if",
+      "params": {
+        "when": { "path": "user_message", "eq": "maseczka" },
+        "then": [
+          { "type": "set", "params": { "vars": { "response": "{{covid_message}}" } } }
+        ]
+      }
+    },
+
+    {
+      "type": "if",
+      "params": {
+        "when": { "path": "user_message", "eq": "menu" },
+        "then": [
+          { "type": "set", "params": { "vars": { "response": "{{menu_message}}" } } }
+        ]
+      }
+    },
+    {
+      "type": "if",
+      "params": {
+        "when": { "path": "user_message", "eq": "opcje" },
+        "then": [
+          { "type": "set", "params": { "vars": { "response": "{{menu_message}}" } } }
+        ]
+      }
+    },
+    {
+      "type": "if",
+      "params": {
+        "when": { "path": "user_message", "eq": "lista" },
+        "then": [
+          { "type": "set", "params": { "vars": { "response": "{{menu_message}}" } } }
+        ]
+      }
+    },
+
+    {
+      "type": "if",
+      "params": {
+        "when": { "path": "user_message", "eq": "pomoc" },
+        "then": [
+          { "type": "set", "params": { "vars": { "response": "{{help_message}}" } } }
+        ]
+      }
+    },
+    {
+      "type": "if",
+      "params": {
+        "when": { "path": "user_message", "eq": "help" },
+        "then": [
+          { "type": "set", "params": { "vars": { "response": "{{help_message}}" } } }
+        ]
+      }
+    },
+    {
+      "type": "if",
+      "params": {
+        "when": { "path": "user_message", "eq": "jak korzystać" },
+        "then": [
+          { "type": "set", "params": { "vars": { "response": "{{help_message}}" } } }
+        ]
+      }
+    },
+
+    {
+      "type": "if",
+      "params": {
+        "when": { "path": "user_message", "eq": "człowiek" },
+        "then": [
+          { "type": "set", "params": { "vars": { "response": "👨‍💼 **POŁĄCZENIE Z OBSŁUGĄ**\n\n📞 **ZADZWOŃ TERAZ:**\n+48 508 833 713\n\n💬 **LUB NAPISZ:**\n• WhatsApp: +48 508 833 713\n• Facebook Messenger\n• Instagram DM\n\n⏰ **GODZINY OBSŁUGI:**\nCodziennie 9:00-20:00\n\n💡 **Nasz personel chętnie Ci pomoże!**" } } }
+        ]
+      }
+    },
+    {
+      "type": "if",
+      "params": {
+        "when": { "path": "user_message", "eq": "obsługa" },
+        "then": [
+          { "type": "set", "params": { "vars": { "response": "👨‍💼 **POŁĄCZENIE Z OBSŁUGĄ**\n\n📞 **ZADZWOŃ TERAZ:**\n+48 508 833 713\n\n💬 **LUB NAPISZ:**\n• WhatsApp: +48 508 833 713\n• Facebook Messenger\n• Instagram DM\n\n⏰ **GODZINY OBSŁUGI:**\nCodziennie 9:00-20:00\n\n💡 **Nasz personel chętnie Ci pomoże!**" } } }
+        ]
+      }
+    },
+
+    {
+      "type": "print",
+      "params": {
+        "text": "🤖 **ODPOWIEDŹ BOTA:**\n\n{{response}}"
+      }
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "mova_version": "2.0",
+  "actions": [
+    {
+      "type": "print",
+      "params": {
+        "value": "Wrong version"
+      }
+    }
+  ]
+}

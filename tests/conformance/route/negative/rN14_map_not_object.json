@@ -1,0 +1,6 @@
+{
+  "route_version": "1.0",
+  "trigger": { "type": "queue", "queue": { "name": "jobs" } },
+  "invoke": { "plan_ref": "booking.book_by_time" },
+  "map": ["should", "be", "object"]
+}

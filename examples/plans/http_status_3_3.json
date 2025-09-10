@@ -1,0 +1,22 @@
+{
+  "mova_version": "3.3",
+  "id": "http-status-3-3",
+  "description": "Demo: http_fetch + print with {{}} interpolation",
+  "policies": { "timeout_ms": 15000 },
+  "actions": [
+    {
+      "type": "http_fetch",
+      "params": {
+        "endpoint": "https://jsonplaceholder.typicode.com/users",
+        "method": "GET"
+      },
+      "save_as": "users_resp"
+    },
+    {
+      "type": "print",
+      "params": {
+        "text": "status={{users_resp.status}} first={{users_resp.json[0].name}}"
+      }
+    }
+  ]
+}

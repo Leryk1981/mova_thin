@@ -1,0 +1,13 @@
+{
+  "mova_version": "3.4",
+  "id": "wrong_version_test",
+  "description": "Test plan with unsupported 3.4 version",
+  "actions": [
+    {
+      "type": "print",
+      "params": {
+        "value": "This should fail - version 3.4 not supported"
+      }
+    }
+  ]
+}

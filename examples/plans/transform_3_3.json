@@ -1,0 +1,41 @@
+{
+  "mova_version": "3.3",
+  "id": "transform-3-3",
+  "description": "http_fetch → transform (pick/template) → print",
+  "policies": { "timeout_ms": 15000 },
+  "actions": [
+    {
+      "type": "http_fetch",
+      "endpoint": "https://jsonplaceholder.typicode.com/users",
+      "method": "GET",
+      "save_as": "users_resp"
+    },
+    {
+      "type": "transform",
+      "from": "users_resp.json",
+      "pick": "0.username",
+      "save_as": "first_user"
+    },
+    {
+      "type": "print",
+      "message": "first={{first_user}}"
+    },
+    {
+      "type": "transform",
+      "template": "user={{users_resp.json[1].name}} email={{users_resp.json[1].email}}",
+      "save_as": "second_line"
+    },
+    {
+      "type": "print",
+      "message": "{{second_line}}"
+    },
+    {
+      "type": "set",
+      "vars": { "limit": 10, "city": "Berlin" }
+    },
+    {
+      "type": "sleep",
+      "ms": 100
+    }
+  ]
+}

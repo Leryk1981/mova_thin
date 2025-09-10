@@ -1,0 +1,21 @@
+{
+  "mova_version": "3.3",
+  "policies": {
+    "budget_ms": 30000,
+    "dlq": {
+      "enabled": true
+    }
+  },
+  "actions": [
+    {
+      "type": "set",
+      "vars": {
+        "start_time": "{{now}}"
+      }
+    },
+    {
+      "type": "sleep",
+      "ms": 1000
+    }
+  ]
+}

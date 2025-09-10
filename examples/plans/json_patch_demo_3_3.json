@@ -1,0 +1,10 @@
+{
+  "mova_version": "3.3",
+  "id": "patch",
+  "actions": [
+    { "type": "set", "vars": { "obj": { "a": 1, "b": 2 } } },
+    { "type": "json_patch", "target": "obj", "patch": { "b": null, "c": 3 }, "save_as": "patched" },
+    { "type": "print", "message": "{{patched.c}}={{patched.b}}" }
+  ]
+}
+

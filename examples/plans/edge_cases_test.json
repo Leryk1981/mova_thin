@@ -1,0 +1,59 @@
+{
+  "mova_version": "3.3",
+  "vars": { 
+    "tags": ["barber", "promo"],
+    "tier": "gold",
+    "missing_token": "should_error_in_strict_mode"
+  },
+  "actions": [
+    {
+      "type": "print",
+      "params": { "text": "=== Edge Cases Test ===" }
+    },
+    {
+      "type": "if",
+      "params": {
+        "when": { "path": "tags", "contains": "promo" },
+        "then": [
+          { "type": "print", "params": { "text": "✅ Contains test: Promo ON" } }
+        ],
+        "else": [
+          { "type": "print", "params": { "text": "❌ Contains test failed" } }
+        ]
+      }
+    },
+    {
+      "type": "if", 
+      "params": {
+        "when": { "path": "tier", "gt": "basic" },
+        "then": [
+          { "type": "print", "params": { "text": "✅ String comparison: VIP tier" } }
+        ],
+        "else": [
+          { "type": "print", "params": { "text": "❌ String comparison failed" } }
+        ]
+      }
+    },
+    {
+      "type": "http_fetch",
+      "params": {
+        "endpoint": "https://httpbin.org/json",
+        "method": "GET"
+      },
+      "save_as": "api_result"
+    },
+    {
+      "type": "if",
+      "params": {
+        "when": { "path": "api_result.status", "gte": 200, "lt": 300 },
+        "then": [
+          { "type": "print", "params": { "text": "✅ save_as → path: {{api_result.status}}" } }
+        ]
+      }
+    },
+    {
+      "type": "print",
+      "params": { "text": "Test with unknown token: {{unknown_token}}" }
+    }
+  ]
+}

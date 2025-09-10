@@ -1,0 +1,15 @@
+{
+  "route_version": "1.0",
+  "trigger": {
+    "type": "queue",
+    "queue": {
+      "name": "test_queue"
+    }
+  },
+  "map": [
+    "should_be_object_not_array"
+  ],
+  "invoke": {
+    "plan_ref": "test.handler"
+  }
+}

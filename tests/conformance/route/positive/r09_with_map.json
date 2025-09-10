@@ -1,0 +1,24 @@
+{
+  "route_version": "1.0",
+  "trigger": {
+    "type": "queue",
+    "queue": {
+      "name": "data_processing"
+    }
+  },
+  "map": {
+    "user_id": "$.payload.user.id",
+    "timestamp": "$.metadata.created_at",
+    "priority": "high"
+  },
+  "invoke": {
+    "plan_ref": "data.process_user_data"
+  },
+  "policies": {
+    "retry": {
+      "max_attempts": 5,
+      "backoff_ms": [200, 400, 800, 1600, 3200],
+      "strategy": "exp"
+    }
+  }
+}

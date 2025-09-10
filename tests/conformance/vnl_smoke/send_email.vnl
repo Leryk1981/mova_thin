@@ -1,0 +1,5 @@
+@timeout_ms=12000
+@retry.max_attempts=2
+@retry.backoff_ms=400
+emit channel="smtp" payload='{"to":"user@example.com","subject":"Hello","text":"Hi"}'
+

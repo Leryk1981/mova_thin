@@ -1,0 +1,14 @@
+{
+  "mova_version": "3.3",
+  "actions": [
+    { 
+      "type": "parallel", 
+      "params": {
+        "tasks": [
+          [ { "type": "print", "params": { "text": "A" } } ],
+          [ { "type": "print", "params": { "text": "B" } } ]
+        ]
+      }
+    }
+  ]
+}

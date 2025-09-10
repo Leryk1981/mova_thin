@@ -1,0 +1,12 @@
+{
+  "mova_version": "3.3",
+  "extra_field": "This should not be allowed",
+  "actions": [
+    {
+      "type": "print",
+      "params": {
+        "value": "Has extra property"
+      }
+    }
+  ]
+}

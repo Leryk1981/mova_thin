@@ -1,0 +1,21 @@
+{
+  "mova_version": "3.3",
+  "actions": [
+    {
+      "type": "vnl",
+      "params": {
+        "ast": {
+          "steps": [
+            {
+              "type": "print",
+              "kv": {
+                "message": "Hello from VNL AST!"
+              }
+            }
+          ]
+        },
+        "expand": "inline"
+      }
+    }
+  ]
+}

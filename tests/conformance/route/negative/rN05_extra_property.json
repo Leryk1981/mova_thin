@@ -1,0 +1,14 @@
+{
+  "route_version": "1.0",
+  "extra_field": "This should not be allowed",
+  "trigger": {
+    "type": "http",
+    "http": {
+      "path": "/test",
+      "method": "GET"
+    }
+  },
+  "invoke": {
+    "plan_ref": "examples/test.json"
+  }
+}

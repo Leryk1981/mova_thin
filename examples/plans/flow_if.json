@@ -1,0 +1,14 @@
+{
+  "mova_version": "3.3",
+  "actions": [
+    { "type": "set", "vars": { "x": 5 } },
+    {
+      "type": "if",
+      "params": {
+        "when": { "path": "last_result", "eq": 5 },
+        "then": [ { "type": "print", "message": "eq 5" } ],
+        "else": [ { "type": "print", "message": "not 5" } ]
+      }
+    }
+  ]
+}

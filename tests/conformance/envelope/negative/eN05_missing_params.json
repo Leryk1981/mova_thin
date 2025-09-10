@@ -1,0 +1,8 @@
+{
+  "mova_version": "3.3",
+  "actions": [
+    {
+      "type": "print"
+    }
+  ]
+}

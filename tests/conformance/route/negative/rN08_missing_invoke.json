@@ -1,0 +1,10 @@
+{
+  "route_version": "1.0",
+  "trigger": {
+    "type": "http",
+    "http": {
+      "path": "/test",
+      "method": "POST"
+    }
+  }
+}

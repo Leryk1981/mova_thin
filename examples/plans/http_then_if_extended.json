@@ -1,0 +1,10 @@
+{ "mova_version":"3.3",
+  "actions":[
+    { "type":"http_fetch","params":{"endpoint":"https://example.com/ping","method":"GET"},"save_as":"availability_check" },
+    { "type":"if","params":{
+      "when":{ "path":"availability_check.status","gte":200,"lt":300 },
+      "then":[ { "type":"print","message":"✅ online: {{availability_check.status}}" } ],
+      "else":[ { "type":"print","message":"⚠️ offline: {{availability_check.status}}" } ]
+    }}
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "mova_version": "3.3",
+  "actions": [
+    {
+      "type": "vnl",
+      "params": {
+        "sentence": "відправити email to \"igor@example.com\" with subject \"Рахунок\" via \"smtp\"",
+        "lang": "uk",
+        "expand": "inline"
+      }
+    }
+  ]
+}

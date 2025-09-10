@@ -1,0 +1,9 @@
+{
+  "mova_version": "3.3",
+  "id": "tool",
+  "actions": [
+    { "type": "tool_call", "name": "not_registered", "args": { "x": 1 }, "save_as": "tool" },
+    { "type": "print", "message": "{{tool.ok}}" }
+  ]
+}
+

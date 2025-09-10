@@ -1,0 +1,15 @@
+{
+  "mova_version": "3.3",
+  "actions": [
+    {
+      "type": "http_fetch",
+      "params": {
+        "endpoint": "https://api.example.com/test",
+        "method": "GET",
+        "headers": {
+          "Authorization": "Bearer {{API_KEY}}"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "mova_version": "3.3",
+  "actions": {
+    "type": "print",
+    "params": {
+      "value": "Actions should be array, not object"
+    }
+  }
+}
