@@ -67,20 +67,6 @@ jobs:
             echo "retry vnl:post $i"; sleep 2;
           done
           echo "smoke:vnl:post failed after retries"; exit 1
-      # Cross-platform route smoke (with retry)
-      - run: |
-          set -e
-          node dist/src/runner/run_route_cli.js --port 8787 routes/*.route.json & echo $! > server.pid
-          for i in 1 2 3 4 5; do
-            code=$(curl -s -o /dev/null -w "%{http_code}" http://localhost:8787/status || true)
-            if [ "$code" = "200" ]; then curl -s http://localhost:8787/status; ok=1; break; fi
-            echo "waiting route-runner ($i)"; sleep 1
-          done
-          if [ "${ok:-0}" != "1" ]; then echo "route smoke failed"; kill $(cat server.pid) || true; exit 1; fi
-          kill $(cat server.pid) || true
-      # Cross-platform retry/DLQ smoke
-      - run: rm -rf logs/dlq || true
-      - run: node dist/src/runner/run_cli.js examples/plans/retry_dlq_demo_3_3.json || true
-      - run: |
-          if [ -d logs/dlq ]; then f=$(ls -1t logs/dlq | head -n 1); echo "DLQ: logs/dlq/$f"; cat "logs/dlq/$f"; else echo 'No DLQ file found'; fi
+      # No route smoke for thin-core
+      # No DLQ smoke for thin-core
       - run: npm run smoke:budget || true
