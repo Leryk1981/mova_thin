@@ -1,5 +1,5 @@
 {
-  "name": "@mova/thin-core",
+  "name": "@leryk1981/thin-core",
   "version": "3.3.0-rc.5",
   "description": "MOVA 3.3 Thin Core: schemas, precompiled validators, canonical examples & CLI validate",
   "license": "MIT",
